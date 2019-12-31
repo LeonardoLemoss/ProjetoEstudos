@@ -7,7 +7,7 @@ package br.com.bytebank.banco.modelo;
  * @author Nico Steppat
  *
  */
-public abstract class Conta extends Object {
+public abstract class Conta extends Object implements Comparable<Conta>{
 
     protected double saldo;
     private int agencia;
@@ -110,5 +110,9 @@ public abstract class Conta extends Object {
 	public String toString() {
 		return "Numero: " + this.numero + ", Agencia: " + this.agencia;
 	}
-
+    
+    @Override
+    public int compareTo(Conta outro) {
+    	return Double.compare(this.saldo, outro.saldo);
+    }
 }
